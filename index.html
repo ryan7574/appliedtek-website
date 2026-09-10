@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied Tek Canada | Sales Enablement & Business Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #001f4d;
+            --cyan: #0099cc;
+            --gray: #888888;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--navy);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            opacity: 0.9;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #253347 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: left;
+        }
+
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero h1 .accent {
+            color: var(--cyan);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--cyan);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #0077aa;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 153, 204, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--cyan);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 153, 204, 0.15);
+        }
+
+        .hero-visual {
+            background: rgba(0, 153, 204, 0.08);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(0, 153, 204, 0.2);
+        }
+
+        .hero-stat {
+            margin-bottom: 2rem;
+        }
+
+        .hero-stat .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--cyan);
+        }
+
+        .hero-stat .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        /* Portfolios Section */
+        .portfolios {
+            background: var(--light-bg);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--cyan);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .portfolio-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .portfolio-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: rgba(0, 153, 204, 0.1);
+            color: var(--cyan);
+            padding: 0.4rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Partners Section */
+        .partners {
+            background: var(--white);
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .partner-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #e9ecef;
+        }
+
+        .partner-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .partner-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            background: var(--light-bg);
+        }
+
+        .expertise-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .expertise-item {
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .expertise-item::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-size: 1.5rem;
+        }
+
+        .expertise-item h4 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .expertise-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f1620;
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Focus states */
+        a:focus, button:focus {
+            outline: 2px solid var(--cyan);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <img src="AppliedTek.png" alt="Applied Tek" class="logo-img">
+            <ul class="nav-links">
+                <li><a href="#portfolios">Portfolios</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div>
+                <h1>Technology & Sales Consulting for <span class="accent">Industrial Markets</span></h1>
+                <p>Applied Tek Canada brings technology expertise and sales strategy to industrial markets. We partner with energy, utilities, and manufacturing leaders to accelerate growth, close complex deals, and navigate OT security, efficiency, and innovation initiatives.</p>
+                <div class="cta-group">
+                    <a href="#contact" class="btn btn-primary">Start a Conversation</a>
+                    <a href="#portfolios" class="btn btn-secondary">Explore Our Work</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-stat">
+                    <div class="number">20+</div>
+                    <div class="label">Years in Industrial Sales</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">3</div>
+                    <div class="label">Integrated Portfolios</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">P.Eng</div>
+                    <div class="label">APEGA-Registered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolios" id="portfolios">
+        <div class="container">
+            <h2 class="section-title">Our Portfolios</h2>
+            <p class="section-subtitle">Three integrated areas of focus, each built on deep domain expertise and proven results.</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <h3>Energy Savings</h3>
+                    <p>Drive ROI through efficiency improvements and sustainability solutions. We work with enterprise clients to identify, qualify, and close energy optimization deals across facilities, production, and campus-scale projects.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Energy Efficiency</span>
+                        <span class="tag">Sustainability</span>
+                        <span class="tag">Enterprise Sales</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <h3>IT/OT Software & Cybersecurity</h3>
+                    <p>Secure industrial infrastructure. Complex sales in compliance, SCADA security, network modernization, and IIoT. We enable SaaS vendors and system integrators to navigate enterprise OT procurement and build qualified pipelines.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">IEC 62443</span>
+                        <span class="tag">ISASecure</span>
+                        <span class="tag">OT Security</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <h3>Hardware & Industrial Solutions</h3>
+                    <p>Breakthrough hardware into industrial markets. From PEM electrolyzers to specialized equipment, we handle the complexity of enterprise hardware sales, partnerships, and go-to-market strategy.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Equipment Sales</span>
+                        <span class="tag">Partnerships</span>
+                        <span class="tag">GTM Strategy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners" id="partners">
+        <div class="container">
+            <h2 class="section-title">Strategic Partners</h2>
+            <p class="section-subtitle">We partner with industry leaders to bring complete solutions to market.</p>
+            
+            <div class="partner-grid">
+                <div class="partner-card">
+                    <div class="partner-name">360 Energy Solutions</div>
+                    <div class="partner-desc">Energy efficiency and sustainability solutions for industrial facilities.</div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-name">Cocoon CS</div>
+                    <div class="partner-desc">Compliance automation platform for OT security and regulatory requirements.</div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-name">HOD Tec</div>
+                    <div class="partner-desc">PEM electrolyzer technology for hydrogen production and industrial decarbonization.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <h2 class="section-title">Our Expertise</h2>
+            <p class="section-subtitle">Technology depth meets sales strategy. Built on real outcomes in industrial markets.</p>
+            
+            <div class="expertise-list">
+                <div class="expertise-item">
+                    <h4>OT Cybersecurity & Technology</h4>
+                    <p>IEC 62443, ISO 27001, ISASecure/CPCSC certified expertise. We speak the technical and business language of industrial security.</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Sales Strategy & Acceleration</h4>
+                    <p>Enterprise deal cycles, multi-stakeholder alignment, RFP strategy, and solution selling across utilities, oil & gas, and manufacturing.</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Industrial Technology</h4>
+                    <p>15+ years in SCADA, DCS, PLC systems, automation, and modern industrial tech. Real operational credibility with technical buyers.</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Market Intelligence & GTM</h4>
+                    <p>Competitive positioning, go-to-market strategy, partnership development, and market entry for technology vendors and industrial solutions.</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Sales Enablement</h4>
+                    <p>Proposal strategy, technical documentation, competitive intelligence, and fractional sales/business development support for your team.</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Account Leadership</h4>
+                    <p>Named account history: LNG Canada, Suncor, Syncrude, Copper Mountain, CNRL, Inter Pipeline, and more. Real relationships, real results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Accelerate Your Growth?</h2>
+            <p>Whether you need technology strategy, sales acceleration, business development support, or hands-on deal leadership—let's talk.</p>
+            <a href="mailto:ryan@appliedtek.ca" class="btn btn-primary">Get in Touch</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Applied Tek Canada. All rights reserved. | Calgary, AB</p>
+    </footer>
+</body>
+</html>
